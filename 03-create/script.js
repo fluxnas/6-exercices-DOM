@@ -64,37 +64,6 @@
 
 
 
-
-// // * sélectionner les éléments que tu dois sélectionner 
-// let art = document.querySelectorAll("article");
-
-// * créer un array avec les learners
-let learners = ["Samuel", "Eli", "shama", "victor"];
-
-// * faire une boucle pour travailler sur chaque learner à l'intérieur de ton array learners :
-
-learners.forEach((learner) => {
-
-// * Créer une section : 
-	let newSection = document.createElement("section")
-
-// // * Créer un paragraphe :
-// 	let newParagraphe = document.createElement("p")
-
-// // * attacher le texte (le learner) au paragraphe : 
-// 	newParagraphe.innerHTML = learner
-
-// // * attacher le paragraphe à ta section : 
-// 	document.querySelector("section").appendChild(newParagraphe)
-
-// // * attacher ta section à l'article : 
-// 	document.querySelector("article").appendChild(newSection)
-
-
-});
-
-
-
 // learners.forEach(myFunction);
 
 // function myFunction(learner) {
@@ -122,6 +91,55 @@ learners.forEach((learner) => {
 // * appliquer la formule pour que si bg = dark -> text = white et si bg = light -> text = dark
 
 // * shuffle l'ordre des éléments
+
+
+
+
+
+
+
+// // * sélectionner les éléments que tu dois sélectionner 
+// let art = document.querySelectorAll("article");
+
+// * créer un array avec les learners
+const learners = ["Samuel", "Eli", "shama", "victor"];
+
+// * faire une boucle pour travailler sur chaque learner à l'intérieur de ton array learners :
+
+learners.forEach((learner) => {
+
+// * Créer une section : 
+	let newSection = document.createElement("section")
+
+// * Créer un paragraphe :
+	let newParagraphe = document.createElement("p")
+
+// * attacher le texte (le learner) au paragraphe : 
+	newParagraphe.innerHTML = learner
+
+// * attacher le paragraphe à ta section : 
+	newSection.appendChild(newParagraphe)
+	
+// * attacher ta section à l'article : 
+	document.querySelector("article").appendChild(newSection)
+
+// * appliquer ta couleur random à la section
+function getRandomColor() {
+	let r = Math.floor(Math.random() * 255 )
+	let g = Math.floor(Math.random() * 255 )
+	let b = Math.floor(Math.random() * 255 )
+	let bgColor = "rgb(" + r + ", " + g + ", " + b + ")"
+	console.log(bgColor)
+	newSection.style.backgroundColor = bgColor
+// * appliquer la formule pour que si bg = dark -> text = white et si bg = light -> text = dark
+	if (r<125 || g<125 || b<125) { newSection.style.color = "white" }
+	else { newSection.style.color = "black" }
+	}
+getRandomColor(newSection)
+
+// * shuffle l'ordre des éléments
+let shuffled = learners.sort(() => Math.random() - 0.5);
+});
 
 
 
